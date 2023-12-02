@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+</head>
+<body>
+    <h1>All project</h1>
+    <ul>
+        <li><a id="login" target="_blank">Login page</a></li>
+        <li><a id="photo-gallery" target="_blank">Photo gallery in html/css</a></li>
+        <li><a id="loader" target="_blank">Loader</a></li>
+    </ul>
+
+
+    <script>
+         var isDevlopment = true; // change this to false production
+
+         var baseURL = isDevlopment ? '/all-practice-projects/' : 'http://localhost:5501/';
+
+         //now u can use baseUrl to constract your links
+
+         var loginPageURL = baseURL + 'login/login.html';
+         var galleryPageURL = baseURL + '/gallery/index.html';
+         var loaderPageURL = baseURL + 'loader/index.html';
+
+         //get all <li> element
+         var listItems = document.querySelectorAll('ul li')
+
+         //iterate through each <li> element
+            listItems.forEach (function (li){
+                // find the <a> element inside the current <li>
+                    var anchorElement = li.querySelector ('a');
+
+                    //if an <a> element is found,update is href attribute
+                        switch (anchorElement.id){
+                            case 'login':
+                                document.querySelector('#login').setAttribute ('href',loginPageURL);
+                                break;
+                                case 'photo-gallery':
+                                document.querySelector('#photo-gallery').setAttribute ('href',galleryPageURL);
+
+                                case 'loader':
+                                document.querySelector('#loader').setAttribute ('href',loaderPageURL);
+                        }
+            })
+    </script>
+</body>
+</html>
